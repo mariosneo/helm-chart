@@ -2,15 +2,15 @@ apiVersion: v1
 entries:
   helm-chart:
   - apiVersion: v1
-    created: "2022-10-17T20:01:25.011791+03:00"
+    created: "2022-10-17T23:17:15.138092+03:00"
     dependencies:
     - name: nginx-ingress
       repository: https://helm.nginx.com/stable
       version: 0.4.2
     description: A Helm chart for Sock Shop
-    digest: 5713b6f0e9fe74c5001245c01a383352c5214ba10710755b1f0c3fd5cd280834
+    digest: 8489ac2694e630fab9c7535618599a78b1d65c32b2b66a57a43e8062891dce5a
     name: helm-chart
     urls:
-    - https://github.com/mariosneo/helm-chart/helm-chart-0.3.0.tgz
+    - https://github.com/mattiaperi/helm-chart/helm-chart-0.3.0.tgz
     version: 0.3.0
-generated: "2022-10-17T20:01:25.007359+03:00"
+generated: "2022-10-17T23:17:15.134933+03:00"
