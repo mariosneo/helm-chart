@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: catalogue
+  namespace: {{ .Values.namespace.name }}
   labels:
     name: catalogue
 spec:
@@ -25,7 +26,7 @@ spec:
         command: ["/app"]
         args:
         - -port={{ .Values.catalogue.containerPort }}
-        - -DSN=catalogue_user:default_password@tcp(catalogue-db.{{ .Release.Namespace }}.svc.cluster.local:3306)/socksdb
+        - -DSN=catalogue_user:default_password@tcp(catalogue-db.{{ .Values.namespace.name }}.svc.cluster.local:3306)/socksdb
         {{- if .Values.zipkin.enabled }}
         env:
          - name: ZIPKIN

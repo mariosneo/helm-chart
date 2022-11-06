@@ -3,6 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: carts
+  namespace: {{ .Values.namespace.name }}
   labels:
     name: carts
 spec:

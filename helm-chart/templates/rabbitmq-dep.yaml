@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: rabbitmq
+  namespace: {{ .Values.namespace.name }}
   labels:
     name: rabbitmq
 spec:
