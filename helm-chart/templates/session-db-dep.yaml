@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: session-db
+  namespace: {{ .Values.namespace.name }}
   labels:
     name: session-db
 spec:

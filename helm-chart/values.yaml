@@ -12,12 +12,21 @@ istio:
 
 ingress:
     annotations:
-        kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/force-ssl-redirect: false
+    #     kubernetes.io/ingress.class: nginx
     labels: {}
-    host: ''
-    tlsSecretName: ''
+    host: 'demo.ingress.com'
+    tlsSecretName: 'demo-secret'
+
+namespace: 
+    name: sock-shop
 
 cartsdb:
+    metadata:
+        namespace: 
     image:
         repo: mongo
         tag: 4.4.0
@@ -48,7 +57,7 @@ carts:
 cataloguedb:
     image:
         repo: weaveworksdemos/catalogue-db
-        tag: 0.3.0
+        tag:  0.3.0
     resources:
         limits:
             cpu: 300m
@@ -74,7 +83,7 @@ frontend:
     replicas: 1
     image:
         repo: weaveworksdemos/front-end
-        tag: 0.3.12
+        tag: latest
     resources:
         limits:
             cpu: 300m
@@ -88,7 +97,7 @@ loadtest:
     enabled: false
     image:
         repo: weaveworksdemos/load-test
-        tag: 0.1.1
+        tag: latest
     resources:
         limits:
             cpu: 300m
